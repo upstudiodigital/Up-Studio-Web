@@ -1,15 +1,18 @@
 import { Box, Toolbar } from "@mui/material";
 import HeaderDefault from "../Headers/Navbar";
-import { Outlet } from "react-router-dom";
-import bg from "../../assets/backgrounds/background2.png"; // ajuste o caminho
+import { Outlet, useLocation } from "react-router-dom";
+import bg from "../../assets/backgrounds/background2.png";
 
 export const LayoutDefault = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
     <Box
       sx={{
         position: "relative",
         minHeight: "100vh",
-        overflowX: "hidden", // 🔥 evita scroll lateral
+        overflowX: "hidden",
       }}
     >
       {/* 🌌 BACKGROUND */}
@@ -21,14 +24,14 @@ export const LayoutDefault = () => {
           width: "100%",
           height: "100%",
           backgroundImage: `url(${bg})`,
-          backgroundSize: "cover", // 🔥 evita bug mobile
+          backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           zIndex: -2,
         }}
       />
 
-      {/* 🌑 OVERLAY SUAVE */}
+      {/* 🌑 OVERLAY DINÂMICO */}
       <Box
         sx={{
           position: "fixed",
@@ -36,8 +39,10 @@ export const LayoutDefault = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background:
-            "linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.6))",
+          background: `linear-gradient(
+            rgba(0,0,0,${isHome ? 0.25 : 0.4}),
+            rgba(0,0,0,${isHome ? 0.6 : 0.9})
+          )`,
           zIndex: -1,
         }}
       />
@@ -53,7 +58,7 @@ export const LayoutDefault = () => {
         component="main"
         sx={{
           width: "100%",
-          maxWidth: "100%", // 🔥 evita overflow
+          maxWidth: "100%",
           px: { xs: 2, sm: 3, md: 6 },
           py: { xs: 3, md: 6 },
           display: "flex",
