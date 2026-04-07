@@ -19,7 +19,12 @@ const pages = [
   { name: "Contato", path: "/contato" },
 ];
 
-function HeaderDefault() {
+// 🔥 RECEBENDO A PROP
+interface Props {
+  onOpenBudget: () => void;
+}
+
+function HeaderDefault({ onOpenBudget }: Props) {
   const [anchorElNav, setAnchorElNav] =
     React.useState<null | HTMLElement>(null);
 
@@ -37,13 +42,13 @@ function HeaderDefault() {
       sx={{
         background: "transparent",
         boxShadow: "none",
-        marginTop:"1rem"
+        marginTop: "1rem",
       }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
 
-          {/* 🔥 LOGO (ESQUERDA SEMPRE) */}
+          {/* 🔥 LOGO */}
           <Typography
             component={Link}
             to="/"
@@ -60,7 +65,7 @@ function HeaderDefault() {
             </Box>
           </Typography>
 
-          {/* 🧭 DESKTOP MENU (DIREITA) */}
+          {/* 🧭 DESKTOP */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -82,11 +87,10 @@ function HeaderDefault() {
               </Button>
             ))}
 
-            {/* CTA */}
+            {/* 🔥 CTA AGORA ABRE MODAL */}
             <Button
               variant="contained"
-              component={Link}
-              to="/contato"
+              onClick={onOpenBudget} // 🔥 AQUI
               sx={{
                 background: "#ff6a00",
                 "&:hover": { background: "#e65c00" },
@@ -96,7 +100,7 @@ function HeaderDefault() {
             </Button>
           </Box>
 
-          {/* 📱 MOBILE MENU (DIREITA) */}
+          {/* 📱 MOBILE */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
@@ -126,11 +130,12 @@ function HeaderDefault() {
                 </MenuItem>
               ))}
 
-              {/* CTA MOBILE */}
+              {/* 🔥 CTA MOBILE */}
               <MenuItem
-                component={Link}
-                to="/contato"
-                onClick={handleCloseNavMenu}
+                onClick={() => {
+                  handleCloseNavMenu();
+                  onOpenBudget(); // 🔥 AQUI
+                }}
               >
                 Orçamento
               </MenuItem>

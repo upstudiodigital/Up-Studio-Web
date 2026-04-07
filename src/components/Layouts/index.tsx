@@ -2,10 +2,19 @@ import { Box, Toolbar } from "@mui/material";
 import HeaderDefault from "../Headers/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import bg from "../../assets/backgrounds/background2.png";
+import { useState } from "react";
+import BudgetModal from "../../components/BudgetModal/";
 
 export const LayoutDefault = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  // 🔥 ESTADO GLOBAL DO MODAL
+  const [openBudget, setOpenBudget] = useState(false);
+
+  // 🔥 FUNÇÃO DE ABRIR (REUTILIZÁVEL)
+  const handleOpenBudget = () => setOpenBudget(true);
+  const handleCloseBudget = () => setOpenBudget(false);
 
   return (
     <Box
@@ -48,7 +57,7 @@ export const LayoutDefault = () => {
       />
 
       {/* 🧭 NAVBAR */}
-      <HeaderDefault />
+      <HeaderDefault onOpenBudget={handleOpenBudget} /> {/* 🔥 */}
 
       {/* 🔧 OFFSET PRA NAVBAR FIXA */}
       <Toolbar />
@@ -71,9 +80,16 @@ export const LayoutDefault = () => {
             maxWidth: "1200px",
           }}
         >
-          <Outlet />
+          {/* 🔥 PASSANDO FUNÇÃO PARA AS PÁGINAS */}
+          <Outlet context={{ openBudget: handleOpenBudget }} />
         </Box>
       </Box>
+
+      {/* 🔥 MODAL GLOBAL */}
+      <BudgetModal
+        open={openBudget}
+        onClose={handleCloseBudget}
+      />
     </Box>
   );
 };
