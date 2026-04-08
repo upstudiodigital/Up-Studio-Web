@@ -6,7 +6,7 @@ import Projects from "../pages/Projects";
 import About from "../pages/About";
 import Contacts from "../pages/Contacts";
 import { LayoutDefault } from "../components/Layouts";
-
+import { ROUTES } from "../constants/enums/routes";
 
 
 export const routes = createBrowserRouter([
@@ -16,23 +16,23 @@ export const routes = createBrowserRouter([
     children: [
 
       {
-        path: "/",
+        path: ROUTES.HOME,
         element: <Home/>,
       },
       {
-        path: "/servicos",
+        path: ROUTES.SERVICES,
         element: <Services />,
       },
       {
-        path: "/projetos",
+        path: ROUTES.PROJECTS,
         element: <Projects />,
       },
       {
-        path: "/sobre",
+        path: ROUTES.ABOUT,
         element: <About />,
       },
       {
-        path: "/contato",
+        path: ROUTES.CONTACTS,
         element: <Contacts />,
       }
 

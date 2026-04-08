@@ -77,14 +77,21 @@ export default function BudgetModal({ open, onClose }: Props) {
 
           {/* GRID PRINCIPAL */}
           <Grid container spacing={2}>
-            
             {/* COLUNA 1 (ÍCONES) */}
-            <Grid item xs={12} md={4}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 4,
+              }}
+            >
               {[
                 { icon: <User size={18} />, placeholder: "Seu nome" },
                 { icon: <Mail size={18} />, placeholder: "Seu email" },
                 { icon: <Building2 size={18} />, placeholder: "Empresa" },
-                { icon: <Briefcase size={18} />, placeholder: "Nome do projeto" },
+                {
+                  icon: <Briefcase size={18} />,
+                  placeholder: "Nome do projeto",
+                },
               ].map((item, i) => (
                 <Box
                   key={i}
@@ -95,9 +102,7 @@ export default function BudgetModal({ open, onClose }: Props) {
                     mb: 2,
                   }}
                 >
-                  <Box sx={{ color: "#fff", opacity: 0.7 }}>
-                    {item.icon}
-                  </Box>
+                  <Box sx={{ color: "#fff", opacity: 0.7 }}>{item.icon}</Box>
 
                   <TextField
                     fullWidth
@@ -109,29 +114,36 @@ export default function BudgetModal({ open, onClose }: Props) {
             </Grid>
 
             {/* COLUNA 2 */}
-            <Grid item xs={12} md={4}>
-              {[
-                "Tipo de projeto",
-                "Tecnologia",
-                "Prazo",
-                "Orçamento",
-              ].map((label, i) => (
-                <TextField
-                  key={i}
-                  select
-                  fullWidth
-                  defaultValue=""
-                  sx={{ ...inputStyle, mb: 2 }}
-                >
-                  <MenuItem value="">{label}</MenuItem>
-                  <MenuItem value="1">Opção 1</MenuItem>
-                  <MenuItem value="2">Opção 2</MenuItem>
-                </TextField>
-              ))}
+            <Grid
+              size={{
+                xs: 12,
+                md: 4,
+              }}
+            >
+              {["Tipo de projeto", "Tecnologia", "Prazo", "Orçamento"].map(
+                (label, i) => (
+                  <TextField
+                    key={i}
+                    select
+                    fullWidth
+                    defaultValue=""
+                    sx={{ ...inputStyle, mb: 2 }}
+                  >
+                    <MenuItem value="">{label}</MenuItem>
+                    <MenuItem value="1">Opção 1</MenuItem>
+                    <MenuItem value="2">Opção 2</MenuItem>
+                  </TextField>
+                ),
+              )}
             </Grid>
 
             {/* COLUNA 3 */}
-            <Grid item xs={12} md={8}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 8,
+              }}
+            >
               {["Serviço", "Plataforma", "Necessidade"].map((label, i) => (
                 <TextField
                   key={i}
@@ -148,7 +160,11 @@ export default function BudgetModal({ open, onClose }: Props) {
             </Grid>
 
             {/* DETALHES + BOTÃO */}
-            <Grid item xs={12}>
+            <Grid
+              size={{
+                xs: 12,
+              }}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -169,8 +185,7 @@ export default function BudgetModal({ open, onClose }: Props) {
                   variant="contained"
                   sx={{
                     minWidth: { xs: "100%", md: "220px" },
-                    background:
-                      "linear-gradient(90deg, #ff6a00, #ff8c42)",
+                    background: "linear-gradient(90deg, #ff6a00, #ff8c42)",
                     fontWeight: 700,
                     borderRadius: "12px",
                     boxShadow: "0 10px 30px rgba(255,106,0,0.4)",
