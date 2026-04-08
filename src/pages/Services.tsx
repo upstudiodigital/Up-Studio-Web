@@ -104,6 +104,7 @@ export default function ServicesSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
+          
           viewport={{ once: true }}
         >
           {services?.map((service, index) => (
@@ -114,12 +115,11 @@ export default function ServicesSection() {
                 md: 4,
               }}
               key={index}
-              sx={{ display: "flex" }}
+              sx={{ display: "flex", width: "100%"  }}
             >
               <motion.div variants={cardVariants} style={{ width: "100%" }}>
                 <Box
                   sx={{
-                    width: "100%",
                     borderRadius: "18px",
                     border: "1px solid rgba(255,115,0,0.5)",
                     px: 4,

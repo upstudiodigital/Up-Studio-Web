@@ -198,8 +198,7 @@ export default function ProjectsSection() {
             );
           })}
         </Box>
-
-        {/* MODAL */}
+ 
         <AnimatePresence>
           {selectedProject && (
             <Dialog
@@ -245,7 +244,6 @@ export default function ProjectsSection() {
                 sx={{
                   flex: 1, 
                   overflowY: "auto",  
-              
                   pb: 2,
                 }}
               >
@@ -274,7 +272,7 @@ export default function ProjectsSection() {
                             whileHover={{ scale: 1.05 }}
                             sx={{
                               width: "100%",
-                              height: { xs: "100%", md: 200 },
+                              height: { xs: "100%", sm: 160, md: 150, lg: 200, xl: 200 },
                               borderRadius: "12px",
                             }}
                           />

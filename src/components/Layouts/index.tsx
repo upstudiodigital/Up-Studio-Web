@@ -88,7 +88,7 @@ export const LayoutDefault = () => {
           sx={{
             position: "fixed",
             bottom: { xs: 20, md: 30 },
-            right: { xs: 20, md: 30 },
+            right: { xs: 20, md: 20 },
             width: 60,
             height: 60,
             borderRadius: "50%",

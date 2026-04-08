@@ -2,27 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>up-studio</title>
+
+    <title>
+      Up Studio Digital | Desenvolvimento de Plataformas, Sites, Sistemas e Apps
+    </title>
+
+    <meta
+      name="description"
+      content="Na Up Studio Digital você cria aplicações sob medida para o seu negócio. Desenvolvemos sites, sistemas e aplicativos modernos, rápidos e focados em resultados rápidos."
+    />
+
+    <meta
+      name="keywords"
+      content="criar site, quero um site, quero criar um site, quero um site, quero criar uma aplicativo, quero criar uma one page, quero criar um sistema, quero construir um aplicativo, desenvolvimento web, criação de sites, aplicativos, sistemas personalizados, software sob medida, agência digital"
+    />
+
+    <meta name="author" content="Up Studio Digital" />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- FONT -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDB0LF1ZB1"></script>
+
+    <meta property="og:title" content="Up Studio Digital" />
+    <meta
+      property="og:description"
+      content="Transformamos ideias em soluções digitais modernas, rápidas e escaláveis. Eleve o nível do seu negócio com tecnologia de verdade."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://upstudiodigital.com.br/" />
+    <meta
+      property="og:image"
+      content="https://upstudiodigital.com.br/preview.png"
+    />
+
+    <meta name="instagram:card" content="summary_large_image" />
+    <meta name="instagram:title" content="Up Studio Digital" />
+    <meta
+      name="instagram:description"
+      content="Soluções digitais sob medida para empresas que querem crescer de verdade."
+    />
+    <meta
+      name="instagram:image"
+      content="https://www.instagram.com/upstudio_oficial/preview.png"
+    />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CDB0LF1ZB1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-CDB0LF1ZB1');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CDB0LF1ZB1");
     </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+      
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
   </body>
 </html>
